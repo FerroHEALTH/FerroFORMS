@@ -17,7 +17,7 @@
 # distroless static: ca-certificates, tzdata, an /etc/passwd carrying the
 # nonroot user (uid 65532), a /tmp, no shell, and no package manager. Pinned by
 # index digest; Dependabot (docker ecosystem) proposes the bumps.
-FROM gcr.io/distroless/static-debian13:nonroot@sha256:e2e927ec666bae08560abb3c55d0659eceabb657f56b6782ab500a9fc7f555e3
+FROM gcr.io/distroless/static-debian13:nonroot@sha256:aafe993665bf6200db38a02c11a9351e782a84b6a45e7f33b6695638c88e3931
 
 # The platform of the manifest being built, set by buildx per platform.
 ARG TARGETOS
