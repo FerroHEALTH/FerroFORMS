@@ -27,7 +27,7 @@ pub enum ValidateError {
     /// from it.
     ///
     /// The web template is the flattened form the archetype-conformance pass
-    /// walks (`openehr_its::flat::webtemplate`). It is a compatibility target
+    /// walks (`openehr_sdt::flat::webtemplate`). It is a compatibility target
     /// rather than a specification: openEHR ITS-REST Release-1.1.0
     /// `simplified_formats.html` section 2.2 puts "Web Template itself as a
     /// resource" under what the specification does not cover.

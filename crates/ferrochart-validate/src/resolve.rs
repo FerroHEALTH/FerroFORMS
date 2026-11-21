@@ -8,7 +8,7 @@
 //! and the measurement that settled it.
 
 use ferrochart_form::validation::{FailureKind, FailureSource, ValidationFailure};
-use openehr_its::rm_instance::{ValidationKind, ValidationMessage};
+use openehr_sdt::rm_instance::{ValidationKind, ValidationMessage};
 use serde_json::Value;
 
 use crate::index::KeyIndex;
@@ -42,7 +42,7 @@ pub fn failure(
     }
 }
 
-/// The root path, which `openehr_its::rm_instance` normalizes to `/`.
+/// The root path, which `openehr_sdt::rm_instance` normalizes to `/`.
 ///
 /// Prefixing it would produce a path with a trailing separator that names no
 /// step, so the root contributes nothing and the prefix stands alone.
@@ -77,7 +77,7 @@ fn kind(kind: ValidationKind) -> FailureKind {
 #[cfg(test)]
 mod tests {
     use ferrochart_form::validation::{FailureKind, FailureSource};
-    use openehr_its::rm_instance::{ValidationKind, ValidationMessage};
+    use openehr_sdt::rm_instance::{ValidationKind, ValidationMessage};
     use serde_json::json;
 
     use super::failure;
