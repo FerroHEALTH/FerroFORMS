@@ -26,7 +26,7 @@
 //!
 //! # The path claim of section 9, corrected
 //!
-//! `docs/architecture.md` section 9 said `openehr_its::rm_instance` returns
+//! `docs/architecture.md` section 9 said `openehr_sdt::rm_instance` returns
 //! messages "keyed by the same path string the compiler emitted, which is a
 //! field-level error with no adapter in between". Measured against the
 //! committed template pack, that is not so, and [`mod@resolve`] is the adapter

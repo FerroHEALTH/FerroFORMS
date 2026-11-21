@@ -23,6 +23,7 @@ thiserror.workspace = true
 ferrochart-compile.workspace = true
 ferrochart-form.workspace = true
 openehr-its.workspace = true
+openehr-sdt.workspace = true
 serde_json.workspace = true
 
 [lints]

@@ -36,7 +36,7 @@ impl Step {
     /// The identifier the predicate names, dropping any pinned name.
     ///
     /// The web template writes a predicate as `[node_id]` or
-    /// `[node_id,'pinned name']` (`openehr_its::flat::webtemplate::builder`),
+    /// `[node_id,'pinned name']` (`openehr_sdt::flat::webtemplate::builder`),
     /// so the identifier is everything before the first comma.
     #[must_use]
     pub fn identifier(&self) -> Option<&str> {

@@ -4,7 +4,7 @@
 //! The corpus the compatibility surface is tested against.
 //!
 //! The web templates read here are built from the committed CKM operational
-//! template pack by `openehr_its::flat::webtemplate`, so the documents are
+//! template pack by `openehr_sdt::flat::webtemplate`, so the documents are
 //! real rather than invented. The web template is a compatibility target, so
 //! that is exactly the right evidence: the format is what the published
 //! implementations write.
@@ -44,7 +44,7 @@ pub(crate) fn web_templates() -> Vec<(String, Value)> {
         let Ok(opt) = openehr_its::opt14::from_xml(&xml) else {
             continue;
         };
-        let Ok(web_template) = openehr_its::flat::webtemplate::builder::build_web_template(&opt)
+        let Ok(web_template) = openehr_sdt::flat::webtemplate::builder::build_web_template(&opt)
         else {
             continue;
         };

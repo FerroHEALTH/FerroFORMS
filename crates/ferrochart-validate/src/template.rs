@@ -8,9 +8,9 @@
 
 use ferrochart_form::definition::FormDefinition;
 use ferrochart_form::validation::ValidationReport;
-use openehr_its::flat::webtemplate::model::WebTemplate;
 use openehr_its::opt14::types::OperationalTemplate;
 use openehr_rm::v1_2::composition::composition::Composition;
+use openehr_sdt::flat::webtemplate::model::WebTemplate;
 use serde_json::Value;
 
 use crate::error::ValidateError;
@@ -52,7 +52,7 @@ impl TemplateValidator {
     /// [`ValidateError::WebTemplate`] when no web template can be built from
     /// it.
     pub fn from_opt14(template: &OperationalTemplate) -> Result<Self, ValidateError> {
-        let web_template = openehr_its::flat::webtemplate::builder::build_web_template(template)
+        let web_template = openehr_sdt::flat::webtemplate::builder::build_web_template(template)
             .map_err(|error| ValidateError::WebTemplate {
                 detail: error.to_string(),
             })?;
@@ -110,12 +110,13 @@ impl TemplateValidator {
         // Model invariant and an openEHR terminology code are properties of
         // the instance and hold on the envelope the template never describes.
         // Their paths are already absolute, so they take no prefix.
-        let instance_passes = openehr_its::rm_instance::validate_rm_and_terminology(instance);
+        let instance_passes =
+            openehr_sdt::rm_instance::validate_rm_and_terminology(instance, "COMPOSITION");
 
         // Pass 3 is the template's own, and it runs over the node the
         // template describes. Its paths are relative to that node, so they
         // carry the prefix that reaches it.
-        let template_pass = openehr_its::flat::validation::validate_archetype_conformance(
+        let template_pass = openehr_sdt::flat::validation::validate_archetype_conformance(
             subject,
             &self.web_template,
         );

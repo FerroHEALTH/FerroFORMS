@@ -109,7 +109,7 @@ impl KeyIndex {
 ///
 /// The first step of a key names the root itself and carries no attribute, so
 /// it contributes no path step: the web template's own paths start below the
-/// root too (`openehr_its::flat::webtemplate::builder`, which returns an empty
+/// root too (`openehr_sdt::flat::webtemplate::builder`, which returns an empty
 /// path for the root and appends `/attribute[node]` per step below it).
 fn relative(key: &NodeKey) -> String {
     let mut out = String::new();

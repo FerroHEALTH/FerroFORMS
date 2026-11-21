@@ -16,6 +16,7 @@ publish.workspace = true
 [dependencies]
 ferrochart-form.workspace = true
 openehr-its.workspace = true
+openehr-sdt.workspace = true
 openehr-rm.workspace = true
 serde.workspace = true
 serde_json.workspace = true

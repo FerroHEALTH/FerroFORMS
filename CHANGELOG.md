@@ -23,6 +23,14 @@ the build order.
 
 ### Changed
 
+- The openEHR crates move from 0.0.61 to the 0.3.0 line and `fhir-types`
+  from 0.1.85 to 0.1.131. FerroEHR moved the flat format and the RM instance
+  checks out of `openehr-its` into `openehr-sdt`, so the validator reads them
+  there, and the RM instance check now names the root type it validates, a
+  `COMPOSITION`. The ADL 2 reader takes the generated template from the
+  operational template `openehr-adl` returns with its prohibited attributes,
+  and reads a node id of `id9999`, the primitive node id of an id-coded
+  archetype, as no identity, as it reads `at9999`.
 - The product is renamed from FerroCHART to FerroFORMS, on the new domain
   ferroforms.eu and the repository `FerroHEALTH/FerroFORMS`. The README, the
   community and governance files, `CITATION.cff`, `llms.txt` and `NOTICE`
