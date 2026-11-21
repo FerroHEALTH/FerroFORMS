@@ -59,14 +59,15 @@ release, the document, and the section.
 | openEHR ITS-XML | 2.0.0 | The `Template.xsd`, `OpenehrProfile.xsd`, `Archetype.xsd` and `Resource.xsd` family, the only normative artefact for the ADL 1.4 operational template. |
 | openEHR TERM | Release-3.0.0 | The published prose. The BMM tree and the openEHR FHIR implementation guide already carry 3.1.0 content, so a TERM claim is checked against both. |
 | HL7 FHIR | R4 4.0.1 | The terminology wire target. AQL Release-1.1.0 section 3.9.5.1 names `hl7.org/fhir/4.0` as a `service_api` value and never names R5. R5 is a reading oracle where R4 is silent. |
-| openehr-base | 0.0.61 | Apache-2.0. |
-| openehr-rm | 0.0.61 | Apache-2.0. BMM-generated, carries a `v1_1` and a `v1_2` generation; FerroCHART selects the `v1_1` generation to match the RM pin. |
-| openehr-am | 0.0.61 | Apache-2.0. |
-| openehr-adl | 0.0.61 | BUSL-1.1. The ADL 2, cADL and ODIN parser and the AOM 2 validation catalogue. |
-| openehr-its | 0.0.61 | BUSL-1.1 and Apache-2.0. Carries `opt14`, `flat` and the ITS-REST types. |
-| openehr-query | 0.0.61 | BUSL-1.1. Taken only when FerroCHART composes AQL queries rather than parsing paths. |
-| openehr-term | 0.0.61 | Apache-2.0 and CC-BY-SA-3.0 for the openEHR support terminology it embeds. The terminology client of section 7 reads the RM-mandated groups from it rather than calling a server for them. |
-| fhir-types | 0.1.85 | Apache-2.0. The FHIR model, generated per FHIR version from the published HL7 packages, plus the terminology operation request and response contracts. Section 7.3 takes it as the source of every FHIR resource FerroCHART reads or emits. |
+| openehr-base | 0.3.0 | Apache-2.0. |
+| openehr-rm | 0.3.0 | Apache-2.0. BMM-generated, carries a `v1_1` and a `v1_2` generation; FerroCHART selects the `v1_1` generation to match the RM pin. |
+| openehr-am | 0.3.0 | Apache-2.0. |
+| openehr-adl | 0.3.0 | BUSL-1.1. The ADL 2, cADL and ODIN parser and the AOM 2 validation catalogue. |
+| openehr-its | 0.3.0 | Apache-2.0. Carries `opt14` and the ITS-REST types. |
+| openehr-sdt | 0.3.0 | BUSL-1.1. Carries `flat` and `rm_instance`, which FerroEHR moved out of `openehr-its`; FerroCHART takes its `flat` feature alone. |
+| openehr-query | 0.3.0 | BUSL-1.1. Taken only when FerroCHART composes AQL queries rather than parsing paths. |
+| openehr-term | 0.3.0 | Apache-2.0 and CC-BY-SA-3.0 for the openEHR support terminology it embeds. The terminology client of section 7 reads the RM-mandated groups from it rather than calling a server for them. |
+| fhir-types | 0.1.131 | Apache-2.0. The FHIR model, generated per FHIR version from the published HL7 packages, plus the terminology operation request and response contracts. Section 7.3 takes it as the source of every FHIR resource FerroCHART reads or emits. |
 
 Four things this table has to say out loud.
 

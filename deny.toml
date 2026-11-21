@@ -63,9 +63,9 @@ exceptions = [
   { allow = ["BUSL-1.1"], crate = "ferrochart-renderer" },
   { allow = ["BUSL-1.1"], crate = "openehr-adl" },
   { allow = ["BUSL-1.1"], crate = "openehr-query" },
-  # openehr-its is BUSL-1.1 AND Apache-2.0 for the openEHR-derived material
-  # it embeds.
-  { allow = ["BUSL-1.1", "Apache-2.0"], crate = "openehr-its" },
+  # openehr-sdt, the flat format and RM instance engine FerroEHR split out of
+  # openehr-its, which is Apache-2.0 since.
+  { allow = ["BUSL-1.1"], crate = "openehr-sdt" },
   # openehr-term embeds the openEHR support terminology, which the openEHR
   # Foundation publishes under CC-BY-SA-3.0. ferrochart-term depends on it
   # directly, for the RM-mandated groups the terminology client resolves

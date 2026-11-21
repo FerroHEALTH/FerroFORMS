@@ -155,7 +155,7 @@ fn the_reader_reads_the_published_adl2_library() {
     // parent and a slot filler resolves its target.
     let mut ordered = files.clone();
     ordered.sort_by_key(|path| (depth(path), path.clone()));
-    let mut repository = ArchetypeRepository::new();
+    let mut repository = ArchetypeRepository::default();
     let mut unparseable = 0_usize;
     for path in &ordered {
         let source = fs::read_to_string(path).expect("a fetched archetype is UTF-8");
@@ -174,7 +174,7 @@ fn the_reader_reads_the_published_adl2_library() {
             continue;
         };
         match openehr_adl::opt::create_opt(&root, &repository) {
-            Ok(operational) => match adl2::read(&operational) {
+            Ok(operational) => match adl2::read(&operational.template) {
                 Ok(_) => read += 1,
                 Err(error) => *refused.entry(head_of(&error.to_string())).or_default() += 1,
             },
@@ -356,7 +356,7 @@ fn the_dual_dialect_pairs_agree_on_what_both_dialects_state() {
     // comparing nothing.
     assert_eq!(paired.len(), 321, "the dual-dialect pairing changed");
 
-    let mut repository = ArchetypeRepository::new();
+    let mut repository = ArchetypeRepository::default();
     let mut ordered = adls.clone();
     ordered.sort_by_key(|path| (depth(path), path.clone()));
     for path in &ordered {
@@ -385,7 +385,7 @@ fn the_dual_dialect_pairs_agree_on_what_both_dialects_state() {
         let read = adl2::parse(&source).and_then(|root| {
             openehr_adl::opt::create_opt(&root, &repository)
                 .map_err(ReadError::from)
-                .and_then(|operational| adl2::read(&operational))
+                .and_then(|operational| adl2::read(&operational.template))
         });
         let model = match read {
             Ok(model) => model,

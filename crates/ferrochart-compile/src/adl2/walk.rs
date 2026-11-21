@@ -12,6 +12,7 @@ use openehr_am::v2_4::aom2::constraint_model::c_attribute::CAttribute;
 use openehr_am::v2_4::aom2::constraint_model::c_attribute_tuple::CAttributeTuple;
 use openehr_am::v2_4::aom2::constraint_model::c_complex_object::CComplexObject;
 use openehr_am::v2_4::aom2::constraint_model::c_object::CObject;
+use openehr_am::v2_4::aom2::definitions::adl_code_definitions::AdlCodeDefinitionsData;
 use openehr_am::v2_4::aom2::rules::expr_constraint::ExprConstraint;
 use openehr_am::v2_4::aom2::terminology::archetype_terminology::ArchetypeTerminology;
 use openehr_am::v2_4::beom::core::assertion::Assertion;
@@ -96,8 +97,14 @@ pub(crate) fn read(template: &OperationalTemplate) -> Result<ConstraintTemplate,
 }
 
 fn local_code(node_id: &str) -> Option<LocalCode> {
-    (!node_id.is_empty() && node_id != "Primitive_node_id")
-        .then(|| LocalCode::new(node_id.to_owned()))
+    // NOTE: AOM2 `adl_code_definitions` §Constants: `Primitive_node_id`, `at9999` or
+    // `id9999` in an id-coded archetype, is the node id of a node with no identity of its own.
+    let primitive = AdlCodeDefinitionsData::PRIMITIVE_NODE_ID;
+    let is_primitive = node_id == primitive
+        || node_id
+            .strip_prefix("id")
+            .is_some_and(|number| primitive.strip_prefix("at") == Some(number));
+    (!node_id.is_empty() && !is_primitive).then(|| LocalCode::new(node_id.to_owned()))
 }
 
 /// The parts a `C_COMPLEX_OBJECT` carries, whether or not it is an archetype

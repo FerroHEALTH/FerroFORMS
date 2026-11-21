@@ -70,13 +70,14 @@ set, so the rows below move together.
 
 | Item | Pin | Repeated in |
 |---|---|---|
-| openehr-base | 0.0.61 | `docs/architecture.md` §2, root `Cargo.toml` |
-| openehr-rm | 0.0.61 | `docs/architecture.md` §2, root `Cargo.toml` |
-| openehr-am | 0.0.61 | `docs/architecture.md` §2, root `Cargo.toml` |
-| openehr-adl | 0.0.61 | `docs/architecture.md` §2, root `Cargo.toml` |
-| openehr-its | 0.0.61 | `docs/architecture.md` §2, root `Cargo.toml` |
-| openehr-query | 0.0.61 | `docs/architecture.md` §2, root `Cargo.toml` |
-| openehr-term | 0.0.61 | `docs/architecture.md` §2, root `Cargo.toml` |
+| openehr-base | 0.3.0 | `docs/architecture.md` §2, root `Cargo.toml` |
+| openehr-rm | 0.3.0 | `docs/architecture.md` §2, root `Cargo.toml` |
+| openehr-am | 0.3.0 | `docs/architecture.md` §2, root `Cargo.toml` |
+| openehr-adl | 0.3.0 | `docs/architecture.md` §2, root `Cargo.toml` |
+| openehr-its | 0.3.0 | `docs/architecture.md` §2, root `Cargo.toml` |
+| openehr-sdt | 0.3.0 | `docs/architecture.md` §2, root `Cargo.toml` |
+| openehr-query | 0.3.0 | `docs/architecture.md` §2, root `Cargo.toml` |
+| openehr-term | 0.3.0 | `docs/architecture.md` §2, root `Cargo.toml` |
 
 The set mixes licences: `openehr-base`, `openehr-rm` and `openehr-am` are
 Apache-2.0, `openehr-adl` and `openehr-query` are BUSL-1.1, `openehr-its`
@@ -92,7 +93,7 @@ packages and released from FerroTERM, which is never a dependency here.
 
 | Item | Pin | Repeated in |
 |---|---|---|
-| fhir-types | 0.1.85 | `docs/architecture.md` §2, root `Cargo.toml` |
+| fhir-types | 0.1.131 | `docs/architecture.md` §2, root `Cargo.toml` |
 
 Two lockstep lines now feed this project. `fhir-types` releases together with
 `fhir-terminology` and `sct-ecl` on one FerroTERM version, the way the

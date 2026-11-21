@@ -57,12 +57,12 @@ pub fn parse(source: &str) -> Result<Archetype, ReadError> {
 /// [`ReadError::Flatten`] when a specialisation lineage cannot be flattened,
 /// and anything [`read`] refuses.
 pub fn from_source(template: &str, constituents: &[&str]) -> Result<ConstraintTemplate, ReadError> {
-    let mut repository = ArchetypeRepository::new();
+    let mut repository = ArchetypeRepository::default();
     for source in constituents {
         repository.insert(parse(source)?);
     }
     let root = parse(template)?;
-    let operational = openehr_adl::opt::create_opt(&root, &repository)?;
+    let operational = openehr_adl::opt::create_opt(&root, &repository)?.template;
     read(&operational)
 }
 

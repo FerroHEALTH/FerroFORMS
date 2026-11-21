@@ -36,13 +36,14 @@ publish = false
 # from is never a dependency here. The line releases in lockstep, so the
 # versions move together and docs/VERSIONS.md is the matrix.
 [workspace.dependencies]
-openehr-base = "0.0.61"
-openehr-rm = "0.0.61"
-openehr-am = "0.0.61"
-openehr-adl = "0.0.61"
-openehr-its = "0.0.61"
-openehr-query = "0.0.61"
-openehr-term = "0.0.61"
+openehr-base = "0.3.0"
+openehr-rm = "0.3.0"
+openehr-am = "0.3.0"
+openehr-adl = "0.3.0"
+openehr-its = "0.3.0"
+openehr-sdt = { version = "0.3.0", default-features = false, features = ["flat"] }
+openehr-query = "0.3.0"
+openehr-term = "0.3.0"
 
 # The ITS-REST client (docs/architecture.md section 8, issue #22). rustls
 # rather than the platform TLS stack, and no default features, which is the
@@ -60,7 +61,7 @@ percent-encoding = "2.3.2"
 # the published HL7 FHIR packages and released from FerroTERM, which is never
 # a dependency here; the crate is Apache-2.0 and carries the terminology
 # operation request and response contracts as well as the resources.
-fhir-types = "0.1.85"
+fhir-types = "0.1.131"
 
 # The server surface (docs/architecture.md section 11, issue #41). `query`
 # carries the one query parameter the read-back route takes; the rest of
